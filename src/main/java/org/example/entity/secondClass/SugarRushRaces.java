@@ -6,7 +6,7 @@ import org.hibernate.type.LocalDateTimeType;
 import javax.persistence.*;
 
 @Entity
-@Table(name="sugar_rush")
+@Table(name="sugarRush")
 public class SugarRushRaces {
     @Id
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
