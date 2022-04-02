@@ -1,6 +1,6 @@
 package org.example.entity.fristClass;
 
-import org.example.util.HibernateUtil;
+import org.example.entity.fristClass.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

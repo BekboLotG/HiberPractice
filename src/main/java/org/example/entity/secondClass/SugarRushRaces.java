@@ -4,27 +4,28 @@ import org.hibernate.type.LocalDateTimeType;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
-@Table(name="sugarRush")
+@Table(name="sugar_rush")
 public class SugarRushRaces {
     @Id
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String name;
-    @Column(name = "2ndName")
+//    @Column(name = "2ndName")
     private String SecondName;
     private int age;
     private String hobbies;
     private String home;
     private String dislikes;
-    private LocalDateTimeType birth;
+    private LocalDate birth;
 
     public SugarRushRaces() {
     }
 
     public SugarRushRaces(String name, String secondName, int age, String hobbies,
-                          String home, String dislikes, LocalDateTimeType birth) {
+                          String home, String dislikes, LocalDate birth) {
         this.name = name;
         SecondName = secondName;
         this.age = age;
@@ -90,11 +91,11 @@ public class SugarRushRaces {
         this.dislikes = dislikes;
     }
 
-    public LocalDateTimeType getBirth() {
+    public LocalDate getBirth() {
         return birth;
     }
 
-    public void setBirth(LocalDateTimeType birth) {
+    public void setBirth(LocalDate birth) {
         this.birth = birth;
     }
 

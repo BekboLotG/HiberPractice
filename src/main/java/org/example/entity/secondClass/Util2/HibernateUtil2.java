@@ -1,6 +1,6 @@
 package org.example.entity.secondClass.Util2;
 
-import org.example.entity.fristClass.Penguin;
+
 import org.example.entity.secondClass.SugarRushRaces;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -23,7 +23,7 @@ public class HibernateUtil2 {
                 properties.put(Environment.USER,"postgres");
                 properties.put(Environment.PASS,"bekbolot");
                 properties.put(Environment.DIALECT,"org.hibernate.dialect.PostgreSQL9Dialect");
-                properties.put(Environment.HBM2DDL_AUTO,"validate");
+                properties.put(Environment.HBM2DDL_AUTO,"update");
                 properties.put(Environment.SHOW_SQL,true);
 
                 configuration.setProperties(properties);

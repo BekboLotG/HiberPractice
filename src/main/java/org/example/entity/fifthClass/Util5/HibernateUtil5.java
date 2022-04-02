@@ -1,23 +1,22 @@
-package org.example.util;
+package org.example.entity.fifthClass.Util5;
 
-import java.util.Properties;
-
+import org.example.entity.fifthClass.OogwayStudents;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
-import org.example.entity.fristClass.Penguin;
 
+import java.util.Properties;
 
-public class HibernateUtil {
+public class HibernateUtil5 {
 
     private static SessionFactory sessionFactory;
 
     public static SessionFactory getSessionFactory(){
-        if(sessionFactory == null){
+        if (sessionFactory==null){
             try {
-                Configuration configuration = new Configuration();
+                Configuration configuration =new Configuration();
                 Properties properties = new Properties();
                 properties.put(Environment.DRIVER,"org.postgresql.Driver");
                 properties.put(Environment.URL,"jdbc:postgresql://localhost:5432/postgres");
@@ -28,19 +27,15 @@ public class HibernateUtil {
                 properties.put(Environment.SHOW_SQL,true);
 
                 configuration.setProperties(properties);
+                configuration.addAnnotatedClass(OogwayStudents.class);
 
-                configuration.addAnnotatedClass(Penguin.class);
+                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 
-                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                        .applySettings(configuration.getProperties()).build();
-                System.out.println("Hibernate configuration serviceRegistry created");
-                sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-
+                sessionFactory=configuration.buildSessionFactory(serviceRegistry);
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
         return sessionFactory;
     }
-
 }
